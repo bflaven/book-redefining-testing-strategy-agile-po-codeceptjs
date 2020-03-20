@@ -1,7 +1,7 @@
 # Book #3 Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress
 
-**Below you can find information and code about this book for sale on Amazon: [Coming soon](Coming soon)**
 
+**Below you can find information and code about this book for sale on Amazon: [https://www.amazon.com/dp/B0865TT96K/](https://www.amazon.com/dp/B0865TT96K/)**
 
 
 ![Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress](cover_book-redefining-testing-strategy-agile-po-codeceptjs_400x640.png)
@@ -34,7 +34,8 @@ It all started with a double injunction: on the one hand holding a training cour
 ### Book #3
 **Redefining a testing automation strategy for a P.O. with CodeceptJS & WordPress**
 - Github: [https://github.com/bflaven/book-redefining-testing-strategy-agile-po-codeceptjs](https://github.com/bflaven/book-redefining-testing-strategy-agile-po-codeceptjs)
-- Amazon: [Coming soon](Coming soon)
+- Amazon: [https://www.amazon.com/dp/B0865TT96K/](https://www.amazon.com/dp/B0865TT96K/)
+
 
 ### Acknowledgments
 
