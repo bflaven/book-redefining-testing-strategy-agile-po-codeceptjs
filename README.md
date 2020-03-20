@@ -75,70 +75,70 @@ Coming soon
 ### Table of content
 
 ### Introduction
-#### Foreword
+    Foreword
 
 ### I. Testing for the masses
-##### Connecting Agile and Testing
+    Connecting Agile and Testing
 
 ### II. Why Testing?
-##### Testing & the Definition-Of-Done (DoD)
+    Testing & the Definition-Of-Done (DoD)
 
 
 ### III. Guess Who's Coming to test?
-##### In Agile, who is making e2e testing?
+    In Agile, who is making e2e testing?
 
 ### IV. Does the Testing Pyramid really exist?  
-##### Testing pyramid is a just a thinking model
-##### HEADS-UP: Pyramids in an historical perspective...  
+    Testing pyramid is a just a thinking model
+    HEADS-UP: Pyramids in an historical perspective...  
 
 ### V. Can we talk about Agile Testing? 
-##### The buzzing words
-##### 1. Why make such an association?
-##### 2. O Brother, Where Art Thou?
-##### 3. Climb up again the testing pyramid
-##### 4. Why CI is a must but keep builds short in time!  
-##### 5. Accept limitations and manage your frustration.  
-##### 6. How do I start my testing strategy?  
-##### 7. Plan strategically, Act primitively  
+    The buzzing words
+    1. Why make such an association?
+    2. O Brother, Where Art Thou?
+    3. Climb up again the testing pyramid
+    4. Why CI is a must but keep builds short in time!  
+    5. Accept limitations and manage your frustration.  
+    6. How do I start my testing strategy?  
+    7. Plan strategically, Act primitively  
 
 ### VI. Agile principles revisited  
-##### Bushidō for cowboys testers 
-##### 1. Simplicity rhymes with Agility
-##### 2. Iteration, the key to empiricism 
-##### 3. You'll never walk alone, work as a team  
-##### 4. Upper management methodology 
-##### 5. Learn by Doing
-##### 6. Apply Agile Coding Practices to Tests
-##### 7. Ones for the road
+    Bushidō for cowboys testers 
+    1. Simplicity rhymes with Agility
+    2. Iteration, the key to empiricism 
+    3. You'll never walk alone, work as a team  
+    4. Upper management methodology 
+    5. Learn by Doing
+    6. Apply Agile Coding Practices to Tests
+    7. Ones for the road
 
 ### VII. Testing with CodeceptJS
-##### Diving into CPJS
-##### 1. Install CodeceptJS with Puppeteer
-##### 2. Initialize CodeceptJS
-##### 3. Create the First Test
-##### HEADS-UP: Using Tags in your tests  
-##### HEADS-UP: MAMP & WP on a custom domain
+    Diving into CPJS
+    1. Install CodeceptJS with Puppeteer
+    2. Initialize CodeceptJS
+    3. Create the First Test
+    HEADS-UP: Using Tags in your tests  
+    HEADS-UP: MAMP & WP on a custom domain
     1. Using MAMP
     2. Custom address for WP in MAMP
     3. Installing a WP in MAMP  
-##### 4. Update your simple scenario  
-##### 5. More advanced technics
+    4. Update your simple scenario  
+    5. More advanced technics
     5.1 Say, Say, Say  
-##### 6. Some evolutions in the config
-##### HEADS-UP: Commands to know the version  
-##### HEADS-UP: Commands to know the version  
-##### 7. How to check locators when writing your tests.
+    6. Some evolutions in the config
+    HEADS-UP: Commands to know the version  
+    HEADS-UP: Commands to know the version  
+    7. How to check locators when writing your tests.
     7.1 The function checkOption
     7.2 The function selectOption
     7.3 The function grabTextFrom or grabAttributeFrom  
-##### 8. Create your testing environment  
-##### 9. Writing your first test for WP backend
+    8. Create your testing environment  
+    9. Writing your first test for WP backend
     9.1 Write a gherkin feature 
     9.2 Explanations for the code
         9.2.1 The random values for JavaScript variables
         9.2.2 Using constants
         9.2.2 Extra explanations
-##### 10 Writing CPJS testing files for Wordpress Backend
+    10 Writing CPJS testing files for Wordpress Backend
     10.1 Externalize variables  
         10.1.1 Method_1 "the ugly way"  
         10.1.2 Method_2 "the nice way"  
@@ -153,17 +153,17 @@ Coming soon
     10.5 Enhancing measures in your testing writing process 
         10.5.1 Dependency Injection & UAT
         10.5.2 What is Dependency Injection?
-##### 11 Extending CPJS functionalities with plugins 
+    11 Extending CPJS functionalities with plugins 
     11.1 Plugin screenshotOnFail
     11.2 Plugin autoDelay
     11.3 Plugin stepByStepReport
     11.4 Plugin allure  
-##### 12 Using Actor, PageObject, Page Fragments, StepObjects
+    12 Using Actor, PageObject, Page Fragments, StepObjects
     12.1 Actor  
     12.2 PageObject 
     12.3 PageFragments & StepObjects
     12.4 Using Custom Helper in CPJS
-##### 13 Behavior Driven Development : using Gherkin Feature 
+    13 Behavior Driven Development : using Gherkin Feature 
     13.1 Install gherkin in CPJS
     13.2 Create our first feature
     13.3 Writing test for P.O?  
@@ -171,8 +171,8 @@ Coming soon
         13.4.1 Raise the level of the first .feature
         13.4.2 Other Advanced features  
     13.5 Command-lines summary for Gherkin  
-##### HEADS-UP: Object.keys() and forEach
-##### 14 Data Management REST using the WP REST API  
+    HEADS-UP: Object.keys() and forEach
+    14 Data Management REST using the WP REST API  
     14.1 Quick presentation of the WP API
         14.1.1 The WP REST API regular endpoints
         14.1.2 The WP REST API specific endpoints
@@ -182,7 +182,7 @@ Coming soon
         14.4.1 Install a Basic Authentication to the WP REST API
         14.4.2 Install Postman and Newman to test the WP REST API
         14.4.3 Using a postman collection to test the WP REST API
-##### 15 Better E2E Testing management
+    15 Better E2E Testing management
     15.1 Why organizing the tests?  
     15.2 Putting order in practice  
         15.2.1 Watch out the configuration files
@@ -190,12 +190,12 @@ Coming soon
         15.2.3 My todolist to generate a E2E suite with CPJS.
         15.2.3.1 Things to do and to remember
         15.2.3.2 Extend your project
-##### 16 Using Docker and WebdriverIO for your tests 
+    16 Using Docker and WebdriverIO for your tests 
     16.1 About Docker
         16.1.1 Commands for Docker  
     16.2 About WebdriverIO  
     16.3 Working with Docker and WebdriverIO
-##### 17 How to automate your tests? 
+    17 How to automate your tests? 
     17.1 The P.O POC Automation aka P.O.K.P.O.C 
         17.1.1 Basic Automation 
         17.1.2 Advanced Automation  
@@ -213,18 +213,18 @@ Coming soon
     17.7 Set jobs in Jenkins
         17.7.1 Creating a job in Jenkins
         17.7.2 Job in Jenkins in images 
-##### 18 Custom Runner and Automation
-##### 19 Additional Information
+    18 Custom Runner and Automation
+    19 Additional Information
     19.1 Pause () or the interactive shell
     19.2 From CP to CPJS: how to convert from PHP to JS?
         19.2.1 Making comment
         19.2.2 Code Gemini  
         19.2.3 List all functions
-##### Conclusion  
+### Conclusion  
     Take-Away for CodeceptJS
-##### Resources
+### Resources
     Code avalaible  
-##### Lexicon 
+### Lexicon 
     Some Definitions
 
 
