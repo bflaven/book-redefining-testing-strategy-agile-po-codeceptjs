@@ -1,0 +1,68 @@
+/**
+ * This file is part of the book package: "Redefining a test strategy for a P.O? Introduction to CodeceptJS (codecept.io), a End 2 End Testing framework. Usecase with WordPress."
+ *
+ * (c) Bruno Flaven <info@flaven.fr>
+ * 
+ * Intended to test a FRONTOFFICE and BACKOFFICE made with WP
+ *
+ * @package Codeception WordPress Testing 
+ * @subpackage BACKOFFICE
+ * @since codeceptVersion: 2.3.6, nodeInfo: 12.8.0, WordPress: 5.2.3, npx: 6.13.1
+ */
+/*
+NOTE: *** MAKE IT WORK ***
+
+cd /Users/brunoflaven/Documents/02_copy/_discovering_codeceptjs_2/
+
+
+npx codeceptjs run --steps test_codeceptjs_10_d_test.js
+npx codeceptjs run --steps --verbose test_codeceptjs_10_d_test.js
+
+# with the stepByStepReport plugin
+npx codeceptjs run --plugins stepByStepReport --steps test_codeceptjs_10_d_test.js
+
+#with the stepByStepReport images + allure reports
+npx codeceptjs run --plugins allure --plugins stepByStepReport  --steps test_codeceptjs_10_d_test.js
+
+
+#with the stepByStepReport images + allure reports
+npx codeceptjs run --plugins stepByStepReport --plugins allure --steps test_codeceptjs_10_d_test.js
+
+
+npx codeceptjs run --steps --grep "@post" test_codeceptjs_10_d_test.js
+npx codeceptjs run --steps --verbose --grep "@post" test_codeceptjs_10_d_test.js
+
+ */ 
+
+/* Config V1 */
+// let globals = require('./_data/config/config_values_codecept.js');
+
+/* Config V2 */
+/* 
+      * to inject the properties for globalData object 
+      * e.g. `objectName.propertyName` or `objectName["propertyName 
+*/
+
+/* REQUIREMENTS */
+let assert = require('assert');
+
+
+const { globalData, uiElement, pluginJournalist, loginPageObject} = inject();
+
+// const { globalData} = inject();
+
+/* Features */
+
+Feature('Backoffice :: Ensure the views for Journalists in Front, based on plugin post_type check codeception_journalist_extended_profile @advanced @plugin @journalist');
+/* 
+    * add if needed globalData, uiElement, pluginJournalist 
+    * but not require
+*/
+
+
+
+
+
+
+
+

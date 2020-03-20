@@ -1,0 +1,2859 @@
+{
+	"info": {
+		"_postman_id": "2b1ea0bb-95e5-4805-8068-8c159bff8b2b",
+		"name": "0003_codecepjs_WP_API",
+		"description": "Testing CRUD actions of WP REST API with Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wp_api_list_posts_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b19eddf-1b07-4916-9477-fc41d0b98225",
+						"exec": [
+							"  /**",
+							" * Postman wp_api_list_posts_1",
+							" * Test Script file : ins_wp_api_list_posts_1.js",
+							" * Pre-request Script file : null",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    console.log (\"ENVIRONMENT :: wp_local_api_path :: \"+wp_local_api_path+\" \");",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"RESPONSE :: responseBody :: \"+responseBody+\" \");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Status code is 200\", function () {",
+							"\t\t\t\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"\tpm.expect(((typeof(jsonData)))).to.equal('object');",
+							"\t",
+							"\t",
+							"});",
+							"             ",
+							"\t\t\tpm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    for (var post in jsonData) {",
+							"\t\t\t\t\tconsole.log (\"API :: post_id :: \"+jsonData[post].id+\"\");",
+							"\t\t\t\t\tpm.expect(isNaN(jsonData[post].id)).to.be.false;",
+							"\t\t\t\t\tpm.expect(jsonData[post]).to.have.property('id');",
+							"\t\t\t\t\tpm.expect(jsonData[post]).to.have.property('title');",
+							"\t\t\t\t\tpm.expect(jsonData[post]).to.have.property('content');",
+							"\t\t\t\t\tpm.expect(jsonData[post]).to.have.property('excerpt');",
+							"                    }//EOL post",
+							"\t\t\t\t});",
+							"",
+							"\t\t\tpm.test(\"API :: Check content type for POST\", function () {",
+							"\t\t\t        for (var post in jsonData) {",
+							"\t\t\t\t\tconsole.log (\"API :: post_id :: \"+jsonData[post].id+\"\");",
+							" \t\t\t\t\tpm.expect(jsonData[post].title.rendered).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData[post].content.rendered).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData[post].excerpt.rendered).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData[post].author).to.be.a('number');",
+							" \t\t\t\t\tpm.expect(jsonData[post].featured_media).to.be.a('number');",
+							"\t\t\t        }//EOL post",
+							"\t\t\t\t});",
+							"\t\t\t    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_list_users_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b8f1182-1d77-4a5a-ad0e-53661733c0e3",
+						"exec": [
+							"/**",
+							" * Postman wp_api_list_users_2",
+							" * Test Script file : ins_wp_api_list_users_2.js",
+							" * Pre-request Script file : null",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"console.log (\"ENVIRONMENT :: wp_local_api_path :: \"+wp_local_api_path+\" \");",
+							"",
+							"    ",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"RESPONSE :: responseBody :: \"+responseBody+\" \");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Status code is 200\", function () {",
+							"pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"\tpm.expect(((typeof(jsonData)))).to.equal('object');",
+							"\t",
+							"\t",
+							"});",
+							"",
+							"",
+							"\t\t\tpm.test(\"API :: Check JSON's structure for USER\", function () {",
+							"                    for (var user in jsonData) {",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData[user].id+\"\");",
+							"\t\t\t\t\tpm.expect(isNaN(jsonData[user].id)).to.be.false;",
+							"\t\t\t\t\tpm.expect(jsonData[user]).to.have.property('id');",
+							"\t\t\t\t\tpm.expect(jsonData[user]).to.have.property('name');",
+							"\t\t\t\t\tpm.expect(jsonData[user]).to.have.property('url');",
+							"\t\t\t\t\tpm.expect(jsonData[user]).to.have.property('description');",
+							"                    }//EOL user",
+							"\t\t\t\t});",
+							"",
+							"\t\t\tpm.test(\"API :: Check content type for USER\", function () {",
+							"\t\t\t        for (var user in jsonData) {",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData[user].id+\"\");",
+							" \t\t\t\t\tpm.expect(jsonData[user].name).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData[user].link).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData[user].id).to.be.a('number');",
+							"\t\t\t        }//EOL user",
+							"\t\t\t\t});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wp_local_api_path}}/users",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_post_extended_post_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d30dd0b5-9d63-4a77-8a3d-928b7d516a1a",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_3",
+							" * Test Script file : ins_wp_api_post_extended_post_3.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"    var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    var timestampHeader = pm.environment.get(\"TimestampHeader\");",
+							"    ",
+							"    ",
+							"    var RandomOneLodash = pm.environment.get(\"RandomOneLodash\");",
+							"    var RandomTwoLodash = pm.environment.get(\"RandomTwoLodash\");",
+							"    var RandomThreeLodash = pm.environment.get(\"RandomThreeLodash\");",
+							"    var RandomFourLodash = pm.environment.get(\"RandomFourLodash\");",
+							"    ",
+							"    // Texte with Lodash",
+							"    var RandomTxtLodash = pm.environment.get(\"RandomTxtLodash\");",
+							"    ",
+							"",
+							"    console.log (\"ENVIRONMENT :: RandomOneLodash :: \"+RandomOneLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomTwoLodash :: \"+RandomTwoLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomThreeLodash :: \"+RandomThreeLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomFourLodash :: \"+RandomFourLodash+\" \");",
+							"    ",
+							"    console.log (\"ENVIRONMENT :: RandomTxtLodash :: \"+RandomTxtLodash+\" \");",
+							"",
+							"",
+							"// Header if needed",
+							"// var jsonDataHeader = JSON.stringify(request.headers);",
+							"// console.log(\"HEADERS :: jsonDataHeader :: \"+jsonDataHeader+\"\");",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"    /* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: Created\", function () {",
+							"        pm.response.to.have.status(\"Created\");",
+							"    });",
+							"",
+							"    // Successful POST request status code",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 201 or 202\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(201); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"",
+							"            // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5c9d1956-e115-456f-8306-ea6ab5037d56",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_3",
+							" * Test Script file : ins_wp_api_post_extended_post_3.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"/*",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"*/",
+							"",
+							"",
+							"// pm.environment.set(\"timestampHeader\", new Date());",
+							"pm.environment.set(\"TimestampHeader\", new Date() );",
+							"",
+							"pm.environment.set(\"RandomString\", (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)));",
+							"",
+							"// using lodash",
+							"pm.environment.set(\"RandomOneLodash\", _.random(1,300));",
+							"pm.environment.set(\"RandomTwoLodash\", _.random(1,60));",
+							"pm.environment.set(\"RandomThreeLodash\", _.random(1,400));",
+							"pm.environment.set(\"RandomFourLodash\", _.random(1,50));",
+							"",
+							"pm.environment.set(\"RandomTxtLodash\", _.times(20, () => _.random(35).toString(36)).join(''));",
+							"",
+							"",
+							"// PREREQUEST",
+							"",
+							"const {Property} = require('postman-collection');",
+							"let randomInt = Property.replaceSubstitutions(\"{{$randomInt}}\");",
+							"let randomLoremText = Property.replaceSubstitutions(\"{{$randomLoremText}}\");",
+							"",
+							"",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: randomInt :: \"+randomInt+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: randomLoremText :: \"+randomLoremText+\" \");",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "timestamp",
+						"type": "text",
+						"value": "{{TimestampHeader}}"
+					},
+					{
+						"key": "RandomString",
+						"type": "text",
+						"value": "{{RandomString}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts?title= {{TimestampHeader}} TESTING WP API WITH POSTMAN {{RandomString}}&content=TESTING WP API WITH POSTMAN</b> <hr> RandomNumber => {{RandomNumber}} <br>  RandomDay => {{RandomDay}} <br>  RandomMonth => {{RandomMonth}} <br>  RandomYear => {{RandomYear}} <br>  RandomCompany => {{RandomCompany}} {{$randomLoremText}}<br><ul><li>randomFirstName => {{$randomFirstName}}</li><li>randomLastName => {{$randomLastName}}</li><li>randomFullName => {{$randomFullName}}</li><li>randomLastName => {{$randomLastName}}</li><li>randomJobTitle => {{$randomJobTitle}}</li></ul>&excerpt= TESTING WP API WITH POSTMAN This is a wp excerpt post&status=publish&categories=9,6,4,8,12&tags=100,109,117,106,115,118,101,104,114,120,99&featured_media=920",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": " {{TimestampHeader}} TESTING WP API WITH POSTMAN {{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "TESTING WP API WITH POSTMAN</b> <hr> RandomNumber => {{RandomNumber}} <br>  RandomDay => {{RandomDay}} <br>  RandomMonth => {{RandomMonth}} <br>  RandomYear => {{RandomYear}} <br>  RandomCompany => {{RandomCompany}} {{$randomLoremText}}<br><ul><li>randomFirstName => {{$randomFirstName}}</li><li>randomLastName => {{$randomLastName}}</li><li>randomFullName => {{$randomFullName}}</li><li>randomLastName => {{$randomLastName}}</li><li>randomJobTitle => {{$randomJobTitle}}</li></ul>"
+						},
+						{
+							"key": "excerpt",
+							"value": " TESTING WP API WITH POSTMAN This is a wp excerpt post"
+						},
+						{
+							"key": "status",
+							"value": "publish"
+						},
+						{
+							"key": "categories",
+							"value": "9,6,4,8,12"
+						},
+						{
+							"key": "tags",
+							"value": "100,109,117,106,115,118,101,104,114,120,99"
+						},
+						{
+							"key": "featured_media",
+							"value": "920"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_post_extended_post_3a",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8fb3c8b3-c4f0-4e4f-86dc-f502274e08c0",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_3a",
+							" * Test Script file : ins_wp_api_post_extended_post_3a.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_3a.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"",
+							"",
+							"/*",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"*/",
+							"",
+							"",
+							"// pm.environment.set(\"timestampHeader\", new Date());",
+							"pm.environment.set(\"TimestampHeader\", new Date() );",
+							"",
+							"pm.environment.set(\"RandomString\", (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)));",
+							"",
+							"// using lodash",
+							"pm.environment.set(\"RandomOneLodash\", _.random(1,300));",
+							"pm.environment.set(\"RandomTwoLodash\", _.random(1,60));",
+							"pm.environment.set(\"RandomThreeLodash\", _.random(1,400));",
+							"pm.environment.set(\"RandomFourLodash\", _.random(1,50));",
+							"",
+							"pm.environment.set(\"RandomTxtLodash\", _.times(20, () => _.random(35).toString(36)).join(''));",
+							"",
+							"",
+							"// PREREQUEST",
+							"",
+							"const {Property} = require('postman-collection');",
+							"let randomInt = Property.replaceSubstitutions(\"{{$randomInt}}\");",
+							"let randomLoremText = Property.replaceSubstitutions(\"{{$randomLoremText}}\");",
+							"",
+							"",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: randomInt :: \"+randomInt+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: randomLoremText :: \"+randomLoremText+\" \");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "747b601c-8de0-4953-bf8a-51004e0231b9",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_3a",
+							" * Test Script file : ins_wp_api_post_extended_post_3a.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_3a.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: GET",
+							" */",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"    var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    var timestampHeader = pm.environment.get(\"TimestampHeader\");",
+							"    ",
+							"    ",
+							"    var RandomOneLodash = pm.environment.get(\"RandomOneLodash\");",
+							"    var RandomTwoLodash = pm.environment.get(\"RandomTwoLodash\");",
+							"    var RandomThreeLodash = pm.environment.get(\"RandomThreeLodash\");",
+							"    var RandomFourLodash = pm.environment.get(\"RandomFourLodash\");",
+							"    ",
+							"    // Texte with Lodash",
+							"    var RandomTxtLodash = pm.environment.get(\"RandomTxtLodash\");",
+							"    ",
+							"",
+							"    console.log (\"ENVIRONMENT :: RandomOneLodash :: \"+RandomOneLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomTwoLodash :: \"+RandomTwoLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomThreeLodash :: \"+RandomThreeLodash+\" \");",
+							"    console.log (\"ENVIRONMENT :: RandomFourLodash :: \"+RandomFourLodash+\" \");",
+							"    ",
+							"    console.log (\"ENVIRONMENT :: RandomTxtLodash :: \"+RandomTxtLodash+\" \");",
+							"",
+							"",
+							"// Header if needed",
+							"// var jsonDataHeader = JSON.stringify(request.headers);",
+							"// console.log(\"HEADERS :: jsonDataHeader :: \"+jsonDataHeader+\"\");",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"    /* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: Created\", function () {",
+							"        pm.response.to.have.status(\"Created\");",
+							"    });",
+							"",
+							"    // Successful POST request status code",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 201 or 202\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(201); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"",
+							"            // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts?title=fake title TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}&content=fake content TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}&excerpt=fake excerpt TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}&status=publish&categories=9,6,4,8,12&tags=100,109,117,106,115,118,101,104,114,120,99&featured_media=920",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "fake title TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "fake content TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "excerpt",
+							"value": "fake excerpt TESTING WP API WITH POSTMAN {{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "status",
+							"value": "publish"
+						},
+						{
+							"key": "categories",
+							"value": "9,6,4,8,12"
+						},
+						{
+							"key": "tags",
+							"value": "100,109,117,106,115,118,101,104,114,120,99"
+						},
+						{
+							"key": "featured_media",
+							"value": "920"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_post_extended_post_4",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8fb3c8b3-c4f0-4e4f-86dc-f502274e08c0",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_4",
+							" * Test Script file : ins_wp_api_post_extended_post_4.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_4.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"",
+							"pm.environment.set(\"RandomString\", (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)));",
+							"var RandomStringValue = pm.environment.get(\"RandomString\");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomStringValue :: \"+RandomStringValue+\" \");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "747b601c-8de0-4953-bf8a-51004e0231b9",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_4",
+							" * Test Script file : ins_wp_api_post_extended_post_4.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_4.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"/*",
+							"{{$randomLoremParagraphs}} is dummy content generate by Postman",
+							"",
+							"Postman uses the faker library to generate dummy data. You can generate random names, addresses, email addresses, and much more. You can use these pre-defined variables multiple times to return different values per request.",
+							"*/",
+							"var content_for_wp_post =  pm.environment.get(\"RandomString\");",
+							"console.log (\"ENVIRONMENT :: content_for_wp_post :: \"+content_for_wp_post+\" \");",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: Created\", function () {",
+							"        pm.response.to.have.status(\"Created\");",
+							"    });",
+							"",
+							"    // Successful POST request status code",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 201 or 202\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(201); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"",
+							"            // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts?title={{RandomString}}&content={{$randomLoremParagraphs}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "{{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "{{$randomLoremParagraphs}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_post_extended_post_5",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8fb3c8b3-c4f0-4e4f-86dc-f502274e08c0",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_5",
+							" * Test Script file : ins_wp_api_post_extended_post_5.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_5.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"pm.environment.set(\"RandomString\", \"title test api \"+(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))+\"\");",
+							"",
+							"pm.environment.set(\"RandomBody\", \"<p><b>payload TESTING WP API WITH POSTMAN</b></p>\");",
+							"",
+							"pm.environment.set(\"RandomExcerpt\", \"<p>payload TESTING WP API WITH POSTMAN This is a wp excerpt post</p>\");",
+							"",
+							"const RandomStringValue = pm.environment.get(\"RandomString\");",
+							"const RandomBodyValue = pm.environment.get(\"RandomBody\");",
+							"const RandomExcerptValue = pm.environment.get(\"RandomExcerpt\");",
+							"",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomStringValue :: \"+RandomStringValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomBodyValue :: \"+RandomBodyValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomExcerptValue :: \"+RandomExcerptValue+\" \");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "747b601c-8de0-4953-bf8a-51004e0231b9",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_5",
+							" * Test Script file : ins_wp_api_post_extended_post_5.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_5.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"const title_for_wp_post =  pm.environment.get(\"RandomString\");",
+							"const content_for_wp_post =  pm.environment.get(\"RandomBody\");",
+							"const excerpt_for_wp_post =  pm.environment.get(\"RandomExcerpt\");",
+							"",
+							"console.log (\"ENVIRONMENT :: title_for_wp_post :: \"+title_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: content_for_wp_post :: \"+content_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: excerpt_for_wp_post :: \"+excerpt_for_wp_post+\" \");",
+							"",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: Created\", function () {",
+							"        pm.response.to.have.status(\"Created\");",
+							"    });",
+							"",
+							"    // Successful POST request status code",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 201 or 202\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(201); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"",
+							"            // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts?title={{RandomString}}&content={{RandomBody}}&excerpt={{RandomExcerpt}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "{{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "{{RandomBody}}"
+						},
+						{
+							"key": "excerpt",
+							"value": "{{RandomExcerpt}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_post_extended_post_6",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8fb3c8b3-c4f0-4e4f-86dc-f502274e08c0",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_6",
+							" * Test Script file : ins_wp_api_post_extended_post_6.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_6.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"pm.environment.set(\"RandomString\", \"request 6 title test api \"+(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))+\"\");",
+							"pm.environment.set(\"RandomBody\", \"<p><b>request 6 payload TESTING WP API WITH POSTMAN</b></p>\");",
+							"pm.environment.set(\"RandomExcerpt\", \"<p>request 6 payload TESTING WP API WITH POSTMAN This is a wp excerpt post</p>\");",
+							"pm.environment.set(\"RandomCategories\", \"9,6,4,8,12\");",
+							"pm.environment.set(\"RandomTags\", \"100,109,117,106,115,118,101,104,114,120,99\");",
+							"",
+							"",
+							"const title_for_wp_post =  pm.environment.get(\"RandomString\");",
+							"const content_for_wp_post =  pm.environment.get(\"RandomBody\");",
+							"const excerpt_for_wp_post =  pm.environment.get(\"RandomExcerpt\");",
+							"const categories_for_wp_post =  pm.environment.get(\"RandomCategories\");",
+							"const tags_for_wp_post =  pm.environment.get(\"RandomTags\");",
+							"",
+							"console.log (\"ENVIRONMENT :: title_for_wp_post :: \"+title_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: content_for_wp_post :: \"+content_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: excerpt_for_wp_post :: \"+excerpt_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: categories_for_wp_post :: \"+categories_for_wp_post+\" \");",
+							"console.log (\"ENVIRONMENT :: tags_for_wp_post :: \"+tags_for_wp_post+\" \");",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "747b601c-8de0-4953-bf8a-51004e0231b9",
+						"exec": [
+							"/**",
+							" * Postman wp_api_post_extended_post_6",
+							" * Test Script file : ins_wp_api_post_extended_post_6.js",
+							" * Pre-request Script file : pre_wp_api_post_extended_post_6.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"",
+							"",
+							"const RandomStringValue = pm.environment.get(\"RandomString\");",
+							"const RandomBodyValue = pm.environment.get(\"RandomBody\");",
+							"const RandomExcerptValue = pm.environment.get(\"RandomExcerpt\");",
+							"const RandomCategoriesValue = pm.environment.get(\"RandomCategories\");",
+							"const RandomTagsValue = pm.environment.get(\"RandomTags\");",
+							"",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomStringValue :: \"+RandomStringValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomBodyValue :: \"+RandomBodyValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomExcerptValue :: \"+RandomExcerptValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomExcerptValue :: \"+RandomCategoriesValue+\" \");",
+							"console.log (\"PREREQUEST :: ENVIRONMENT :: RandomExcerptValue :: \"+RandomTagsValue+\" \");",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: Created\", function () {",
+							"        pm.response.to.have.status(\"Created\");",
+							"    });",
+							"",
+							"    // Successful POST request status code",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 201 or 202\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(201); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"",
+							"            // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts?title={{RandomString}}&content={{RandomBody}}&excerpt={{RandomExcerpt}}&categories={{RandomCategories}}&tags={{RandomTags}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "{{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "{{RandomBody}}"
+						},
+						{
+							"key": "excerpt",
+							"value": "{{RandomExcerpt}}"
+						},
+						{
+							"key": "categories",
+							"value": "{{RandomCategories}}"
+						},
+						{
+							"key": "tags",
+							"value": "{{RandomTags}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_create_extended_user_1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "33d63915-0c67-4096-b616-361aed3f045d",
+						"exec": [
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6fe1f54-5757-4ac1-b335-2ba653ed14ba",
+						"exec": [
+							"/**",
+							" * Postman wp_api_create_extended_user_1",
+							" * Test Script file : ins_wp_api_create_extended_user_1.js",
+							" * Pre-request Script file : null",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    console.log (\"ENVIRONMENT :: wp_local_api_path :: \"+wp_local_api_path+\" \");",
+							"",
+							"    ",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"RESPONSE :: responseBody :: \"+responseBody+\" \");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Status code is 201\", function () {",
+							"\t\t\t\tpm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"\tpm.expect(((typeof(jsonData)))).to.equal('object');",
+							"\t",
+							"\t",
+							"});",
+							"",
+							"\tpm.test(\"API :: Check JSON's structure for USER\", function () {",
+							"                   ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							"\t\t\t\t\tpm.expect(isNaN(jsonData.id)).to.be.false;",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('id');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('name');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('url');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('description');",
+							"                   ",
+							"\t\t\t\t});",
+							"",
+							"\t\t\tpm.test(\"API :: Check content type for USER\", function () {",
+							"\t\t\t        ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							" \t\t\t\t\tpm.expect(jsonData.name).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.link).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.id).to.be.a('number');",
+							"\t\t\t       ",
+							"\t\t\t\t});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/users?username=user-postman-26&email=user-postman-26@test.com&password=password&first_name=first_name&last_name=last_name",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user-postman-26"
+						},
+						{
+							"key": "email",
+							"value": "user-postman-26@test.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						},
+						{
+							"key": "first_name",
+							"value": "first_name"
+						},
+						{
+							"key": "last_name",
+							"value": "last_name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_create_extended_user_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae2a4f67-eb1b-4546-8b46-ecc868349574",
+						"exec": [
+							"/**",
+							" * Postman wp_api_create_extended_user_2",
+							" * Test Script file : ins_wp_api_create_extended_user_2.js",
+							" * Pre-request Script file : null",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"",
+							"const paramsString = request.url.split('?')[1];",
+							"const eachParamArray = paramsString.split('&');",
+							"let params = {};",
+							"eachParamArray.forEach((param) => {",
+							"    const key = param.split('=')[0];",
+							"    const value = param.split('=')[1];",
+							"    Object.assign(params, {[key]: value});",
+							"});",
+							"// this is object with request params as key value pairs",
+							"var paramsJson = JSON.stringify(params);",
+							"console.log (\"ENVIRONMENT :: params :: \"+paramsJson+\" \");",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    console.log (\"ENVIRONMENT :: wp_local_api_path :: \"+wp_local_api_path+\" \");",
+							"",
+							"    ",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"RESPONSE :: responseBody :: \"+responseBody+\" \");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Status code is 201\", function () {",
+							"\t\t\t\tpm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"\tpm.expect(((typeof(jsonData)))).to.equal('object');",
+							"\t",
+							"\t",
+							"});",
+							"",
+							"\tpm.test(\"API :: Check JSON's structure for USER\", function () {",
+							"                   ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							"\t\t\t\t\tpm.expect(isNaN(jsonData.id)).to.be.false;",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('id');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('name');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('url');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('description');",
+							"                   ",
+							"\t\t\t\t});",
+							"",
+							"\t\t\tpm.test(\"API :: Check content type for USER\", function () {",
+							"\t\t\t        ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							" \t\t\t\t\tpm.expect(jsonData.name).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.link).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.id).to.be.a('number');",
+							"\t\t\t       ",
+							"\t\t\t\t});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/users?username={{$randomUserName}}&email={{$randomExampleEmail}}&password={{$randomPassword}}&first_name={{$randomFirstName}}&last_name={{$randomLastName}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{$randomUserName}}"
+						},
+						{
+							"key": "email",
+							"value": "{{$randomExampleEmail}}"
+						},
+						{
+							"key": "password",
+							"value": "{{$randomPassword}}"
+						},
+						{
+							"key": "first_name",
+							"value": "{{$randomFirstName}}"
+						},
+						{
+							"key": "last_name",
+							"value": "{{$randomLastName}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_create_extended_user_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae2a4f67-eb1b-4546-8b46-ecc868349574",
+						"exec": [
+							"/**",
+							" * Postman wp_api_create_extended_user_3",
+							" * Test Script file : ins_wp_api_create_extended_user_3.js",
+							" * Pre-request Script file : pre_wp_api_create_extended_user_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							" ",
+							"",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"    console.log (\"ENVIRONMENT :: wp_local_api_path :: \"+wp_local_api_path+\" \");",
+							"",
+							"    ",
+							"",
+							"/* ********* // ENVIRONMENT *********** */",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"RESPONSE :: responseBody :: \"+responseBody+\" \");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"pm.expect(pm.response.responseTime).to.be.below(1200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Status code is 201\", function () {",
+							"\t\t\t\tpm.response.to.have.status(201);",
+							"});",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"\tpm.expect(((typeof(jsonData)))).to.equal('object');",
+							"\t",
+							"\t",
+							"});",
+							"",
+							"\tpm.test(\"API :: Check JSON's structure for USER\", function () {",
+							"                   ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							"\t\t\t\t\tpm.expect(isNaN(jsonData.id)).to.be.false;",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('id');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('name');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('url');",
+							"\t\t\t\t\tpm.expect(jsonData).to.have.property('description');",
+							"                   ",
+							"\t\t\t\t});",
+							"",
+							"\t\t\tpm.test(\"API :: Check content type for USER\", function () {",
+							"\t\t\t        ",
+							"\t\t\t\t\tconsole.log (\"API :: user_id :: \"+jsonData.id+\"\");",
+							" \t\t\t\t\tpm.expect(jsonData.name).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.link).to.be.a('string');",
+							" \t\t\t\t\tpm.expect(jsonData.id).to.be.a('number');",
+							"\t\t\t       ",
+							"\t\t\t\t});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "52f4a6bc-189a-466a-b6df-d6706e4f5677",
+						"exec": [
+							"/**",
+							" * Postman wp_api_create_extended_user_3",
+							" * Test Script file : ins_wp_api_create_extended_user_3.js",
+							" * Pre-request Script file : pre_wp_api_create_extended_user_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"",
+							"function stringGen(len) {",
+							"    var text = \"\";",
+							"    var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";",
+							"",
+							"    for( var i=0; i < len; i++ ) {",
+							"        text += charset.charAt(Math.floor(Math.random() * charset.length));",
+							"    }",
+							"",
+							"    return text;",
+							"}",
+							"const UserEmail = (stringGen(10)+\"@\"+stringGen(5)+\".\"+stringGen(3)).trim();",
+							"// pm.environment.set(\"variable_key\", \"variable_value\");",
+							"pm.environment.set(\"UserEmailRandom\", UserEmail);",
+							"console.log (\"ENVIRONMENT :: UserEmail :: \"+UserEmail+\" \");",
+							"",
+							"const UserRandomStringLodash = _.times(20, () => _.random(35).toString(36)).join('');",
+							"",
+							"",
+							"pm.environment.set(\"usernameLodash\", UserRandomStringLodash);",
+							"pm.environment.set(\"passwordLodash\", UserRandomStringLodash);",
+							"pm.environment.set(\"firstnameLodash\", UserRandomStringLodash);",
+							"pm.environment.set(\"lastnameLodash\", UserRandomStringLodash);",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/users?username={{usernameLodash}}&email={{UserEmailRandom}}&password={{passwordLodash}}&first_name={{firstnameLodash}}&last_name={{lastnameLodash}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{usernameLodash}}"
+						},
+						{
+							"key": "email",
+							"value": "{{UserEmailRandom}}"
+						},
+						{
+							"key": "password",
+							"value": "{{passwordLodash}}"
+						},
+						{
+							"key": "first_name",
+							"value": "{{firstnameLodash}}"
+						},
+						{
+							"key": "last_name",
+							"value": "{{lastnameLodash}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_delete_post_delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f5c29490-c425-44d3-a6ee-4565cdd6cfc7",
+						"exec": [
+							"/**",
+							" * Postman wp_api_delete_post_delete",
+							" * Test Script file : ins_wp_api_delete_post_delete.js",
+							" * Pre-request Script file : pre_wp_api_delete_post_delete.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: DELETE",
+							" */",
+							" ",
+							"// Caution the post id must exist...",
+							"const wp_post_id_to_delete=\"1324\";",
+							"pm.environment.set(\"DeletePostId\", wp_post_id_to_delete);",
+							"console.log (\"ENVIRONMENT :: wp_post_id_to_delete :: \"+wp_post_id_to_delete+\" \");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0d7e8b7-56cb-43b8-b515-9eecf712a1ba",
+						"exec": [
+							"/**",
+							" * Postman wp_api_delete_post_delete",
+							" * Test Script file : ins_wp_api_delete_post_delete.js",
+							" * Pre-request Script file : pre_wp_api_delete_post_delete.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: DELETE",
+							" */",
+							" ",
+							"var DeletePostId = pm.environment.get(\"DeletePostId\");",
+							"console.log (\"ENVIRONMENT :: DeletePostId :: \"+DeletePostId+\" \");",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts/{{DeletePostId}}?",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts",
+						"{{DeletePostId}}"
+					],
+					"query": [
+						{
+							"key": "content",
+							"value": " <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n",
+							"disabled": true
+						},
+						{
+							"key": "excerpt",
+							"value": " 2 This is a wp excerpt post from postman",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_delete_user_delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f5c29490-c425-44d3-a6ee-4565cdd6cfc7",
+						"exec": [
+							"/**",
+							" * Postman wp_api_delete_post_delete",
+							" * Test Script file : ins_wp_api_delete_user_delete.js",
+							" * Pre-request Script file : pre_wp_api_delete_user_delete.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: DELETE",
+							" */",
+							" ",
+							"// Reassign to admin and set force to true",
+							"const wp_user_id_reassign=\"1\";",
+							"",
+							"// Caution the user id must exist...",
+							"const wp_user_id_to_delete=\"24\";",
+							"",
+							"pm.environment.set(\"DeleteUserId\", wp_user_id_to_delete);",
+							"pm.environment.set(\"ReassignUserId\", wp_user_id_reassign);",
+							"console.log (\"ENVIRONMENT :: wp_user_id_to_delete :: \"+wp_user_id_to_delete+\" \");",
+							"console.log (\"ENVIRONMENT :: wp_user_id_reassign :: \"+wp_user_id_reassign+\" \");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0d7e8b7-56cb-43b8-b515-9eecf712a1ba",
+						"exec": [
+							"/**",
+							" * Postman wp_api_delete_post_delete",
+							" * Test Script file : ins_wp_api_delete_user_delete.js",
+							" * Pre-request Script file : pre_wp_api_delete_user_delete.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: DELETE",
+							" */",
+							"",
+							"var DeleteUserId = pm.environment.get(\"DeleteUserId\");",
+							"console.log (\"ENVIRONMENT :: DeleteUserId :: \"+DeleteUserId+\" \");",
+							"",
+							"",
+							" ",
+							"var ReassignUserId = pm.environment.get(\"ReassignUserId\");",
+							"console.log (\"ENVIRONMENT :: ReassignUserId :: \"+ReassignUserId+\" \");",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/users/{{DeleteUserId}}?force=true&=1&reassign={{ReassignUserId}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"users",
+						"{{DeleteUserId}}"
+					],
+					"query": [
+						{
+							"key": "content",
+							"value": " <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n",
+							"disabled": true
+						},
+						{
+							"key": "excerpt",
+							"value": " 2 This is a wp excerpt post from postman",
+							"disabled": true
+						},
+						{
+							"key": "force",
+							"value": "true"
+						},
+						{
+							"key": "",
+							"value": "1"
+						},
+						{
+							"key": "reassign",
+							"value": "{{ReassignUserId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_update_extended_post_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d31b9a7-849a-4aca-9933-4a636e306692",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_1",
+							" * Test Script file : ins_wp_api_update_extended_post_1.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_1.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"/* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: 200 OK\", function () {",
+							"        pm.response.to.have.status(\"OK\");",
+							"    });",
+							"",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 200\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(200); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"            console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0590d0da-0c93-405a-a200-e56b2d2e5bad",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_1",
+							" * Test Script file : ins_wp_api_update_extended_post_1.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_1.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"// Caution the post id must exist...",
+							"const wp_post_id_to_update=\"1353\";",
+							"pm.environment.set(\"UpdatePostId\", wp_post_id_to_update);",
+							"console.log (\"ENVIRONMENT :: wp_post_id_to_update :: \"+wp_post_id_to_update+\" \");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": {\n    \"raw\": \"Update 1 24 december - This is a wp api postman title post published from postman\"\n  },\n  \"content\": {\n    \"raw\": \"Update 1 24 december - This is a wp api postman content post published from postman\"\n  },\n  \"excerpt\": {\n    \"raw\": \"Update 1 24 december - This is a wp api postman excerpt post published from postman\"\n  },\n  \"status\": \"publish\"\n}"
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts/{{UpdatePostId}}?title= 2 This is a wp title post from postman&content= <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n&excerpt= 2 This is a wp excerpt post from postman",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts",
+						"{{UpdatePostId}}"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": " 2 This is a wp title post from postman"
+						},
+						{
+							"key": "content",
+							"value": " <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n"
+						},
+						{
+							"key": "excerpt",
+							"value": " 2 This is a wp excerpt post from postman"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_update_extended_post_1a",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "624cec95-38cc-4b77-b540-8329863082de",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_1a",
+							" * Test Script file : ins_wp_api_update_extended_post_1a.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_1a.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							"// Caution the post id must exist...",
+							"const wp_post_id_to_update=\"1352\";",
+							"pm.environment.set(\"UpdatePostId\", wp_post_id_to_update);",
+							"console.log (\"ENVIRONMENT :: wp_post_id_to_update :: \"+wp_post_id_to_update+\" \");",
+							"",
+							"pm.environment.set(\"TimestampHeader\", \"my update date \"+new Date()+\" end of the upadte date for post\" );",
+							"pm.environment.set(\"RandomString\", \"text for post \"+(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))+\" end of the text for post \");",
+							"",
+							"",
+							"",
+							"var TimestampHeader = pm.environment.get(\"TimestampHeader\");",
+							"var RandomString = pm.environment.get(\"RandomString\");",
+							"",
+							"console.log (\"ENVIRONMENT :: TimestampHeader :: \"+TimestampHeader+\" \");",
+							"console.log (\"ENVIRONMENT :: RandomString :: \"+RandomString+\" \");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "29459029-27d3-426f-96b4-b9678f19f74b",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_1a",
+							" * Test Script file : ins_wp_api_update_extended_post_1a.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_1a.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							" ",
+							"",
+							" /* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: 200 OK\", function () {",
+							"        pm.response.to.have.status(\"OK\");",
+							"    });",
+							"",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 200\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(200); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"            console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": {\n        \"raw\": \"{{TimestampHeader}} {{RandomString}}\",\n        \"rendered\":  \"{{TimestampHeader}} {{RandomString}}\"\n    },\n    \"content\": {\n        \"raw\": \"{{TimestampHeader}} {{RandomString}}\",\n        \"rendered\":  \"{{TimestampHeader}} {{RandomString}}\"\n    },\n    \"excerpt\": {\n        \"raw\": \"{{TimestampHeader}} {{RandomString}}\",\n        \"rendered\":  \"{{TimestampHeader}} {{RandomString}}\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts/{{UpdatePostId}}?title= 2 This is a wp title post from postman&content= <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n&excerpt= 2 This is a wp excerpt post from postman",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts",
+						"{{UpdatePostId}}"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": " 2 This is a wp title post from postman"
+						},
+						{
+							"key": "content",
+							"value": " <b>POSTMAN post from API</b><br><b>Using [ZNBCWelcomeMsg], add to $content</b><br>\\n"
+						},
+						{
+							"key": "excerpt",
+							"value": " 2 This is a wp excerpt post from postman"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_update_extended_post_2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3ae97b1b-e23c-48f5-8320-5128262c8da4",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_2",
+							" * Test Script file : ins_wp_api_update_extended_post_2.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_2.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"",
+							" ",
+							"// Caution the post id must exist...",
+							"const wp_post_id_to_update=\"1351\";",
+							"pm.environment.set(\"UpdatePostId\", wp_post_id_to_update);",
+							"console.log (\"ENVIRONMENT :: wp_post_id_to_update :: \"+wp_post_id_to_update+\" \");",
+							"",
+							"pm.environment.set(\"TimestampHeader\", \"my update date \"+new Date()+\" end of the upadte date for post\" );",
+							"pm.environment.set(\"RandomString\", \"text for post \"+(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))+\" end of the text for post \");",
+							"",
+							"",
+							"",
+							"var TimestampHeader = pm.environment.get(\"TimestampHeader\");",
+							"var RandomString = pm.environment.get(\"RandomString\");",
+							"",
+							"console.log (\"ENVIRONMENT :: TimestampHeader :: \"+TimestampHeader+\" \");",
+							"console.log (\"ENVIRONMENT :: RandomString :: \"+RandomString+\" \");",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d8d83d2-a1c4-4146-9943-a91b91dda881",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_2",
+							" * Test Script file : ins_wp_api_update_extended_post_2.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_2.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							" ",
+							" /* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: 200 OK\", function () {",
+							"        pm.response.to.have.status(\"OK\");",
+							"    });",
+							"",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 200\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(200); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"            console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts/{{UpdatePostId}}?title={{TimestampHeader}} {{RandomString}}&content={{TimestampHeader}} {{RandomString}}&excerpt={{TimestampHeader}} {{RandomString}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts",
+						"{{UpdatePostId}}"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "{{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "{{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "excerpt",
+							"value": "{{TimestampHeader}} {{RandomString}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wp_api_update_extended_post_3",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "3ae97b1b-e23c-48f5-8320-5128262c8da4",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_3",
+							" * Test Script file : ins_wp_api_update_extended_post_3.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							" ",
+							"// Caution the post id must exist...",
+							"const wp_post_id_to_update=\"1350\";",
+							"pm.environment.set(\"UpdatePostId\", wp_post_id_to_update);",
+							"console.log (\"ENVIRONMENT :: wp_post_id_to_update :: \"+wp_post_id_to_update+\" \");",
+							"",
+							"pm.environment.set(\"TimestampHeader\", \"PRESCRIPT my update date \"+new Date()+\" end of the upadte date for post\" );",
+							"pm.environment.set(\"RandomString\", \"PRESCRIPT text for post \"+(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15))+\" end of the text for post \");",
+							"",
+							"const categories = [9,6,4,8,12,7,11,10];",
+							"pm.environment.set(\"categories\", JSON.stringify(_.shuffle(categories)[0]));",
+							"",
+							"// pm.environment.set(\"categories\", JSON.stringify(_.shuffle(categories)));",
+							"",
+							"",
+							"// var randomSingleCategorie = categories[Math.floor(Math.random()*categories.length)];",
+							"// pm.environment.set(\"categories\", randomSingleCategorie);",
+							"",
+							"",
+							"",
+							"/*",
+							"    _.shuffle(categories).forEach(function(el, i) { ",
+							"        console.log (\" el :: \"+el+\" i ::  \"+i+\"\");",
+							"        ",
+							"    });",
+							"*/",
+							"",
+							"",
+							"    ",
+							"const tags = [100,109,117,106,115,118,101,104,114,120,99];",
+							"pm.environment.set(\"tags\", JSON.stringify(_.shuffle(tags)[0]));",
+							"",
+							"const featured_media = [104,96,94,86,836];",
+							"pm.environment.set(\"featured_media\", JSON.stringify(_.shuffle(featured_media)[0]));",
+							"",
+							" ",
+							"",
+							"    ",
+							"",
+							"",
+							"var TimestampHeaderValue = pm.environment.get(\"TimestampHeader\");",
+							"var RandomStringValue = pm.environment.get(\"RandomString\");",
+							"var CategoriesValue = pm.environment.get(\"categories\");",
+							"var TagsValue = pm.environment.get(\"tags\");",
+							"var FeaturedMediaValue = pm.environment.get(\"featured_media\");",
+							"",
+							"",
+							"console.log (\"ENVIRONMENT :: TimestampHeader :: \"+TimestampHeaderValue+\" \");",
+							"console.log (\"ENVIRONMENT :: RandomString :: \"+RandomStringValue+\" \");",
+							"console.log (\"ENVIRONMENT :: CategoriesValue :: \"+CategoriesValue+\" \");",
+							"console.log (\"ENVIRONMENT :: TagsValue :: \"+TagsValue+\" \");",
+							"console.log (\"ENVIRONMENT :: FeaturedMediaValue :: \"+FeaturedMediaValue+\" \");",
+							"",
+							"",
+							"function cleanup() {",
+							"    const clean = ['title', 'content', 'excerpt'];",
+							"    ",
+							"    for(let i = 0; i < clean.length; ++i){",
+							"        pm.environment.unset(clean[i]);",
+							"    }",
+							"}",
+							"cleanup();",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8724961f-5c9d-4f26-8913-8d0c9f4b6373",
+						"exec": [
+							"/**",
+							" * Postman wp_api_update_extended_post_3",
+							" * Test Script file : ins_wp_api_update_extended_post_3.js",
+							" * Pre-request Script file : pre_wp_api_update_extended_post_3.js",
+							" * Version : 1.0",
+							" * Description: Test WP REST API",
+							" * Collection : 0003_codecepjs_WP_API.postman_collection.json",
+							" * Method: POST",
+							" */",
+							"/* ********* ENVIRONMENT *********** */",
+							"var wp_local_api_path = pm.environment.get(\"wp_local_api_path\");",
+							"",
+							"",
+							"/* ********* JSON *********** */",
+							"var jsonData = JSON.parse(responseBody);",
+							"// console.log (\"JSON :: jsonData :: \"+jsonData+\"\");",
+							"/* ********* // JSON *********** */",
+							"",
+							"/* HTTP TESTS  */",
+							"    pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response time is less than 1200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"    });",
+							"        ",
+							" ",
+							"// console.log(\"CODE :: pm.response.code :: \"+pm.response.code+\"\");",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Status code name has string :: 200 OK\", function () {",
+							"        pm.response.to.have.status(\"OK\");",
+							"    });",
+							"",
+							"",
+							"    pm.test(\"HTTP REQUEST :: Successful POST request :: 200\", function () {",
+							"        pm.expect(pm.response.code).to.be.oneOf([200]);",
+							"    });",
+							"",
+							"",
+							"",
+							"pm.test(\"V2 STRUCTURE GENERAL :: result :: OK\", function () {",
+							"            // assert that the status code is 201",
+							"            pm.expect(pm.response.code).to.equal(200); // info, success, redirection, clientError,  serverError, are other variants",
+							"            // assert that the response has a valid JSON body",
+							"            pm.response.to.be.withBody; // this assertion also checks if a body  exists, so the above check is not needed",
+							"            pm.response.to.be.json;",
+							"            pm.response.to.not.be.error;",
+							"            // pm.response.to.have.jsonBody(\"\"); ",
+							"            pm.response.to.not.have.jsonBody(\"error\"); ",
+							"            pm.expect(jsonData).to.not.be.empty;",
+							"        });",
+							"",
+							"",
+							"pm.test(\"HTTP REQUEST :: \"+wp_local_api_path+\" :: Response should be an array\", function () {",
+							"    // console.log (\"API :: typeof(jsonData) :: \"+((typeof(jsonData)))+\"\");",
+							"    pm.expect(((typeof(jsonData)))).to.equal('object');",
+							"    ",
+							"    ",
+							"});",
+							"     ",
+							"            console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"            pm.test(\"API :: Check JSON's structure for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(isNaN(jsonData.id)).to.be.false;",
+							"                    pm.expect(jsonData).to.have.property('id');",
+							"                    pm.expect(jsonData).to.have.property('title');",
+							"                    pm.expect(jsonData).to.have.property('content');",
+							"                    pm.expect(jsonData).to.have.property('excerpt');",
+							"                });",
+							"",
+							"            pm.test(\"API :: Check content type for POST\", function () {",
+							"                    // console.log (\"API :: post_id :: \"+jsonData.id+\"\");",
+							"                    pm.expect(jsonData.title.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.content.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.excerpt.rendered).to.be.a('string');",
+							"                    pm.expect(jsonData.author).to.be.a('number');",
+							"                    pm.expect(jsonData.featured_media).to.be.a('number');",
+							"                });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{wp_local_api_path}}/posts/{{UpdatePostId}}?title={{TimestampHeader}} {{RandomString}}&content={{TimestampHeader}} {{RandomString}}  {{published_on}}  {{updated_on}}&excerpt={{TimestampHeader}} {{RandomString}}&categories={{categories}}&tags={{tags}}&featured_media={{featured_media}}",
+					"host": [
+						"{{wp_local_api_path}}"
+					],
+					"path": [
+						"posts",
+						"{{UpdatePostId}}"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "{{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "content",
+							"value": "{{TimestampHeader}} {{RandomString}}  {{published_on}}  {{updated_on}}"
+						},
+						{
+							"key": "excerpt",
+							"value": "{{TimestampHeader}} {{RandomString}}"
+						},
+						{
+							"key": "categories",
+							"value": "{{categories}}"
+						},
+						{
+							"key": "tags",
+							"value": "{{tags}}"
+						},
+						{
+							"key": "featured_media",
+							"value": "{{featured_media}}"
+						},
+						{
+							"key": "date",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "date_gmt",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f7f6c022-f706-4ca5-a396-d2cb663499b6",
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set(\"RandomNumber\", _.random(1,31));",
+					"pm.environment.set(\"RandomDay\", _.random(1,28));",
+					"pm.environment.set(\"RandomMonth\", _.random(1,12));",
+					"pm.environment.set(\"RandomYear\", _.random(2000,2020));",
+					"pm.environment.set(\"RandomCompany\", _.random(1,500));",
+					"",
+					"pm.environment.set(\"TimestampHeader\", new Date() );",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5eedff04-3423-49c1-a108-220bf6c895ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0feeb119-8f9c-41bf-8758-f0423a9286a9",
+			"key": "RandomNumber",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "e6dff068-3ca7-43b7-93e7-f0109a65214e",
+			"key": "RandomDay",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b561eaf3-4cd9-4ed4-83ac-159332fd1d55",
+			"key": "RandomMonth",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "b70ac548-33ea-4b09-8715-e68ad679a53e",
+			"key": "RandomYear",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "bdd09472-ff65-405b-ae53-79ab93a5c2fa",
+			"key": "RandomCompany",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "8733fd4a-5219-43e1-b5eb-601477a98633",
+			"key": "TimestampHeader",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

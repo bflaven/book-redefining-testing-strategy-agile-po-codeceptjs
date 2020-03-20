@@ -1,0 +1,39 @@
+{
+  "name": "better_testing_management_4",
+  "version": "1.0.0",
+  "description": "End-to-End (E2E) suite using CodeceptJS BDD tests. Redefining a test automation strategy for a P.O? Introduction to CodeceptJS (codecept.io), an End2End Testing framework. Usecase with WordPress. Webdriver.io, Next-gen WebDriver test framework for Node.js",
+  "scripts": {
+    "test:webdriver": "codeceptjs run --steps --config=./e2e_suite/configs/codecept.conf.js"
+  },
+  "devDependencies": {
+    "codeceptjs": "^2.1.3",
+    "puppeteer": "^1.6.2",
+    "webdriverio": "^5.4.13"
+  },
+  "keywords": [
+    "Next-gen",
+    "WebDriver",
+    "test framework",
+    "Node.js",
+    "Webdriver.io",
+    "End-to-End",
+    "E2E",
+    "suite",
+    "CodeceptJS",
+    "BDD",
+    "tests",
+    "automation",
+    "Rationalization",
+    "strategy",
+    "P.O",
+    "Introduction",
+    "CodeceptJS",
+    "codecept.io",
+    "Testing",
+    "framework",
+    "Usecase",
+    "WordPress"
+  ],
+  "author": "Bruno Flaven",
+  "license": "ISC"
+}
