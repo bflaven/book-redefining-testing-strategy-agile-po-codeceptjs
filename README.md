@@ -1,6 +1,8 @@
 # Book #3 Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress
 
-**Below you can find information and code about this book for sale on Amazon: [xxx](xxx)**
+**Below you can find information and code about this book for sale on Amazon: [Coming soon](Coming soon)**
+
+
 
 ![Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress](cover_book-redefining-testing-strategy-agile-po-codeceptjs_400x640.png)
 
