@@ -5,7 +5,7 @@
 ![Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress](cover_book-redefining-testing-strategy-agile-po-codeceptjs_400x640.png)
 
 ### Foreword
-The 3 volumes of the continuous learning trilogy provide a practical synthesis on the best practices I gained as Trainer and Product Owner (P.O) of web application in the Media industry.  
+The 3 volumes of the continuous learning trilogy provide a practical synthesis on the best practices I gained as Trainer and Product Owner (P.O) of web application in the Media industry.
 
 - Book #1: The good and small "Zambian" guide for WordPress. How to run a News Website with WordPress?
 
@@ -16,7 +16,6 @@ The 3 volumes of the continuous learning trilogy provide a practical synthesis o
 1.  The Book #1 gathers all the materials that I brought with me to deliver a training session in Zambia to a team of journalists from the domestic network ZNBC on how to manage and run a news website. I made as intuitive and operational as possible. It has been transposed mostly to WordPress so anyone can leverage on it. It entails good practices under constraints such as budget, technical environment and team resources.
 
 2.  The Book #2 & Book #3 present my understanding and practical experience of web application testing that I gained as Product Owner (P.O) in the Media industry. In these two books, I focus on user acceptance testing that is one of the biggest challenges for a PO of a large web application (back office, website).  How to minimize the risks of the acceptance phase?  How to master its duration? How to avoid regressions and side effects. Book #2 & Book #3 aim at answering those questions with the help of CP (Codeception) and CPJS (CodeceptJS).
-
 
 ## The continuous learning trilogy
 
