@@ -49,12 +49,11 @@ For book #2 & book #3, after a quick benchmark of the market solutions and the c
 
 **Writing another book on testing is insane!**
 
+I should be locked up :) Such a fury in design a testing strategy can only be suspicious! But not for me, this is a logical consequence of a continuous learning process. With this ultimate book, that is not a product of my boredom but rather than a final step in my understanding of testing in a bottom-up approach.
 
-I should be locked up in a loony bin, stuffed with meds! Such a fury in design a testing strategy can only be suspicious! But not for me, this is a logical consequence of a continuous learning process. With this ultimate book, I am just seizing an experience to live the notion truth or rightness or it is just the product of my boredom! Anyway, I will rather conclude that it is also a stronger sign in commitment to a bottom-up approach rather than to a top-down approach both in an organizational mode and in terms of development.
+This bottom-up approach allowed me to make more exploration and experimentation with testing with the help of CPJS.
 
-If a bottom-up approach can be thought of as "an incremental change approach that represents an emergent process cultivated and upheld primarily by frontline workers" hey!, hey! Then I agree to it. A bottomup approach allows for more experimentation and a better feeling for what is needed at the bottom and even as a P.O, I do not consider myself as 'from above'!
-
-After this cryptic introduction, I will be more straightforward in the coming chapters, I promise you. Good reading.
+In this book, I tried to be as straightforward as possible. Good reading.
 
 ### Videos
 Coming soon
