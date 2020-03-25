@@ -2,7 +2,8 @@
 
 **Below you can find information and code about this book for sale on Amazon: [https://www.amazon.com/dp/B0865TT96K/](https://www.amazon.com/dp/B0865TT96K/)**
 
-![Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress](cover_book-redefining-testing-strategy-agile-po-codeceptjs_400x640.png)
+[![Redefining a testing automation strategy for a P.O with CodeceptJS & WordPress](cover_book-redefining-testing-strategy-agile-po-codeceptjs_400x640.png)](https://www.amazon.com/dp/B0865TT96K/)
+
 
 ### Foreword
 The 3 volumes of the continuous learning trilogy provide a practical synthesis on the best practices I gained as Trainer and Product Owner (P.O) of web application in the Media industry.
