@@ -85,9 +85,6 @@ Scenario('test a GET request', async (I) => {
                   assert.isString(journalistDetails.facebook_account);
                   assert.isString(journalistDetails.linkedin_account);
 
-                  
-                  
-
                   expect(journalistDetails.content).to.be.a('string');
                   expect(journalistDetails.excerpt).to.be.a('string');
 
@@ -146,10 +143,9 @@ Scenario('test a GET request', async (I) => {
                     expect(journalistLanguageDetails[language].taxonomy).to.deep.equal('languages');
 
                   });
-
             });
-      });
-  });
+        });
+    });
 });
 
 

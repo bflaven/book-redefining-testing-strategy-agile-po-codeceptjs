@@ -3,7 +3,7 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: 'http://codecept.mydomain.priv/wordpress/',
-      show: false,
+      show: false, // true or false for chromium
       disableScreenshots: true,
       uniqueScreenshotNames: true,
       fullPageScreenshots: true,
@@ -11,7 +11,11 @@ exports.config = {
       restart: false,
       keepCookies: true,
       waitForAction: 500,
-      windowSize: '1280x960'
+      // windowSize: '800x600'
+      // windowSize: '1280x960'
+      // windowSize: '1280x1024'
+      windowSize: '1920x1680'
+
     },
     mobile: {
       require: './mobile_helper.js'
@@ -70,7 +74,7 @@ exports.config = {
       screenshotsForAllureReport: true
     },
     allure: {
-      enabled: false
+      enabled: false // for the test profiles journalits be sure it is false
     }
   },
   tests: './*_test.js',
