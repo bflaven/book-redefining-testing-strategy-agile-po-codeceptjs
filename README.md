@@ -60,7 +60,7 @@ In this book, I tried to be as straightforward as possible. Good reading.
 
 ## Videos
 
-**All the videos below are avaible on youtube on this playlist: [https://bit.ly/2UpWsdZ](https://bit.ly/2UpWsdZ)**
+**All the videos of this Book #3 are available on YouTube in this playlist: [https://bit.ly/2UpWsdZ](https://bit.ly/2UpWsdZ)**
 
 - [Video #1 Install, Init & Writing a first test with CodeceptJS for WordPress](https://www.youtube.com/watch?v=m5VZLKTJy1s)
 [![Video #1 Install, Init & Writing a first test with CodeceptJS for WordPress](001_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_1_2.png)](https://www.youtube.com/watch?v=m5VZLKTJy1s)
