@@ -57,7 +57,43 @@ This bottom-up approach allowed me to make more exploration and experimentation 
 In this book, I tried to be as straightforward as possible. Good reading.
 
 ### Videos
-Coming soon
+
+## Videos
+
+https://www.youtube.com/watch?v=m5VZLKTJy1s
+
+
+- [Video #1 Install, Init & Writing a first test with CodeceptJS for WordPress](https://www.youtube.com/watch?v=m5VZLKTJy1s)
+[![Video #1 Install, Init & Writing a first test with CodeceptJS for WordPress](001_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_1_2.png)](https://www.youtube.com/watch?v=m5VZLKTJy1s)
+
+
+- [Video #2 More advanced usage with CodeceptJS testing the WordPress backoffice](https://www.youtube.com/watch?v=CL5BG4IVWZ0)
+[![Video #2 More advanced usage with CodeceptJS testing the WordPress backoffice](002_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_3.png)](https://www.youtube.com/watch?v=CL5BG4IVWZ0)
+
+- [Video #3 Test with CPJS, a WP Plugin using Custom Post Type, Custom Taxonomy, Advanced Custom Fields](https://www.youtube.com/watch?v=3FDNz4WVEsc)
+[![Video #3 Test with CPJS, a WP Plugin using Custom Post Type, Custom Taxonomy, Advanced Custom Fields](003_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_4.png)](https://www.youtube.com/watch?v=3FDNz4WVEsc)
+
+- [Video #4 Launching a nice Testing Reports Dashboard with the CodeceptJS Plugin Allure](https://www.youtube.com/watch?v=XZaw55RZhgA)
+[![Video #4 Launching a nice Testing Reports Dashboard with the CodeceptJS Plugin Allure](004_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_5.png)](https://www.youtube.com/watch?v=XZaw55RZhgA)
+
+- [Video #5 Enable Gherkin & Using Gherkin Features with CodeceptJS for WordPress](https://www.youtube.com/watch?v=YNovqP6LOnM)
+[![Video #5 Enable Gherkin & Using Gherkin Features with CodeceptJS for WordPress](005_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_6.png)](https://www.youtube.com/watch?v=YNovqP6LOnM)
+
+- [Video #6 Using more advanced Gherkin Features for WordPress With CodeceptJS](https://www.youtube.com/watch?v=5mr8JsAAryo)
+[![Video #6 Using more advanced Gherkin Features for WordPress With CodeceptJS](006_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_7.png)](https://www.youtube.com/watch?v=5mr8JsAAryo)
+
+- [Video #7 With CodeceptJS, launching advanced Gherkin Features for WordPress](https://www.youtube.com/watch?v=hkvfFg1zKN4)
+[![Video #7 With CodeceptJS, launching advanced Gherkin Features for WordPress](007_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_8.png)](https://www.youtube.com/watch?v=hkvfFg1zKN4)
+
+- [Video #8 Combine Gherkin, CodeceptJS & WordPress Plugin for deeper testing](https://www.youtube.com/watch?v=LB_INqvTcSk)
+[![Video #8 Combine Gherkin, CodeceptJS & WordPress Plugin for deeper testing](008_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_9.png)](https://www.youtube.com/watch?v=LB_INqvTcSk)
+
+- [Video #9 Testing the WordPress REST API using Chai and CodeceptJS](https://www.youtube.com/watch?v=WgqqKDtpTTg)
+[![Video #9 Testing the WordPress REST API using Chai and CodeceptJS](009_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_10.png)](https://www.youtube.com/watch?v=WgqqKDtpTTg)
+
+- [Video #10 For a better tests Management with CodeceptJS & Docker](https://www.youtube.com/watch?v=sOX3bxLb3EU)
+[![Video #10 For a better tests Management with CodeceptJS & Docker](010_book_redefining_testing_strategy_agile_po_codeceptjs_usecase_11.png)](https://www.youtube.com/watch?v=sOX3bxLb3EU)
+
 
 
 ### Code
