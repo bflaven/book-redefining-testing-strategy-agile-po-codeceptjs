@@ -7,7 +7,7 @@ I need to know my credentials
   Background: 
     Given I have a vanilla wordpress installation
       | user_login | user_pass | user_email        | role          | 
-      | admin      | admin     | bflaven@gmail.com | administrator | 
+      | admin      | admin     | admin@test.com    | administrator | 
   
   Scenario: A valid user access to the platform
      When I am on "/wp-login.php"
